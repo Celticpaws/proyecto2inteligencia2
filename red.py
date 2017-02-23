@@ -1,101 +1,104 @@
+# -*- coding: utf-8 -*-
+# Proyecto 2 - Red Neural
+# Universidad Simón Bolívar, 2017.
+# Authors: Carlos Farinha   09-10270
+#          Javier López     11-10552
+#          Nabil J. Marquez 11-10683
+# Last Revision: 23/02/17
+
 from math import exp
 from random import seed
 from random import random
  
-# Initialize a network
-def initialize_network(n_inputs, n_hidden, n_outputs):
-	network = list()
-	hidden_layer = [{'weights':[random() for i in range(n_inputs + 1)]} for i in range(n_hidden)]
-	network.append(hidden_layer)
-	output_layer = [{'weights':[random() for i in range(n_hidden + 1)]} for i in range(n_outputs)]
-	network.append(output_layer)
-	return network
+# Inicializar la red
+def inicializar_red(n_entradas, n_ocultas, n_salidas):
+	red = list()
+	capa_oculta = [{'pesos':[random() for i in range(n_entradas + 1)]} for i in range(n_ocultas)]
+	red.append(capa_oculta)
+	capa_salida = [{'pesos':[random() for i in range(n_ocultas + 1)]} for i in range(n_salidas)]
+	red.append(capa_salida)
+	return red
  
-# Calculate neuron activation for an input
-def activate(weights, inputs):
-	activation = weights[-1]
-	for i in range(len(weights)-1):
-		activation += weights[i] * inputs[i]
-	return activation
+# Calcula el valor de la neuronaa para una entrada
+def activar(pesos, entradas):
+	activacion = pesos[-1]
+	for i in range(len(pesos)-1):
+		activacion += pesos[i] * entradas[i]
+	return activacion
  
-# Transfer neuron activation
-def transfer(activation):
-	return 1.0 / (1.0 + exp(-activation))
+# Transferencia de activacion por sigmoidal
+def transferencia(activacion):
+	return 1.0 / (1.0 + exp(-activacion))
  
-# Forward propagate input to a network output
-def forward_propagate(network, row):
-	inputs = row
-	for layer in network:
-		new_inputs = []
-		for neuron in layer:
-			activation = activate(neuron['weights'], inputs)
-			neuron['output'] = transfer(activation)
-			new_inputs.append(neuron['output'])
-		inputs = new_inputs
-	return inputs
+# Propagacion de salida
+def propagacion(red, fila):
+	entradas = fila
+	for capa in red:
+		nuevas_entradas = []
+		for neurona in capa:
+			activacion = activar(neurona['pesos'], entradas)
+			neurona['salida'] = transferencia(activacion)
+			nuevas_entradas.append(neurona['salida'])
+		entradas = nuevas_entradas
+	return entradas
  
-# Calculate the derivative of an neuron output
-def transfer_derivative(output):
-	return output * (1.0 - output)
+# Calculate the derivada of an neurona salida
+def transferencia_derivada(salida):
+	return salida * (1.0 - salida)
  
-# Backpropagate error and store in neurons
-def backward_propagate_error(network, expected):
-	for i in reversed(range(len(network))):
-		layer = network[i]
-		errors = list()
-		if i != len(network)-1:
-			for j in range(len(layer)):
+# Error de propagacion en las neuronas
+def error_de_propagacion(red, esperados):
+	for i in reversed(range(len(red))):
+		capa = red[i]
+		errores = list()
+		if i != len(red)-1:
+			for j in range(len(capa)):
 				error = 0.0
-				for neuron in network[i + 1]:
-					error += (neuron['weights'][j] * neuron['delta'])
-				errors.append(error)
+				for neurona in red[i + 1]:
+					error += (neurona['pesos'][j] * neurona['delta'])
+				errores.append(error)
 		else:
-			for j in range(len(layer)):
-				neuron = layer[j]
-				errors.append(expected[j] - neuron['output'])
-		for j in range(len(layer)):
-			neuron = layer[j]
-			neuron['delta'] = errors[j] * transfer_derivative(neuron['output'])
+			for j in range(len(capa)):
+				neurona = capa[j]
+				errores.append(esperados[j] - neurona['salida'])
+		for j in range(len(capa)):
+			neurona = capa[j]
+			neurona['delta'] = errores[j] * transferencia_derivada(neurona['salida'])
  
-# Update network weights with error
-def update_weights(network, row, l_rate):
-	for i in range(len(network)):
-		inputs = row[:-1]
+# Actualizamos los pesos de las neuronas con el error
+def actualizar_pesos(red, fila, alpha):
+	for i in range(len(red)):
+		entradas = fila[:-1]
 		if i != 0:
-			inputs = [neuron['output'] for neuron in network[i - 1]]
-		for neuron in network[i]:
-			for j in range(len(inputs)):
-				neuron['weights'][j] += l_rate * neuron['delta'] * inputs[j]
-			neuron['weights'][-1] += l_rate * neuron['delta']
+			entradas = [neurona['salida'] for neurona in red[i - 1]]
+		for neurona in red[i]:
+			for j in range(len(entradas)):
+				neurona['pesos'][j] += alpha * neurona['delta'] * entradas[j]
+			neurona['pesos'][-1] += alpha * neurona['delta']
  
-# Train a network for a fixed number of epochs
-def train_network(network, train, l_rate, n_epoch, n_outputs):
+# Entrenamos la red para un conjunto en particular 
+def entrenar_red(red, entrenamiento, alpha, n_epoch, n_salidas):
+
 	for epoch in range(n_epoch):
 		sum_error = 0
-		for row in train:
-			outputs = forward_propagate(network, row)
-			expected = [0 for i in range(n_outputs)]
-			expected[row[-1]] = 1
-			sum_error += sum([(expected[i]-outputs[i])**2 for i in range(len(expected))])
-			backward_propagate_error(network, expected)
-			update_weights(network, row, l_rate)
-		print('>epoch=%d, lrate=%.3f, error=%.3f' % (epoch, l_rate, sum_error))
+		for fila in entrenamiento:
+			salidas = propagacion(red, fila)
+			esperados = [0 for i in range(n_salidas)]
+			esperados[int(fila[-1])] = 1
+			sum_error += sum([(esperados[i]-salidas[i])**2 for i in range(len(esperados))])
+			error_de_propagacion(red, esperados)
+			actualizar_pesos(red, fila, alpha)
  
-# Test training backprop algorithm
-seed(1)
-dataset = [[2.7810836,2.550537003,0],
-	[1.465489372,2.362125076,0],
-	[3.396561688,4.400293529,0],
-	[1.38807019,1.850220317,0],
-	[3.06407232,3.005305973,0],
-	[7.627531214,2.759262235,1],
-	[5.332441248,2.088626775,1],
-	[6.922596716,1.77106367,1],
-	[8.675418651,-0.242068655,1],
-	[7.673756466,3.508563011,1]]
-n_inputs = len(dataset[0]) - 1
-n_outputs = len(set([row[-1] for row in dataset]))
-network = initialize_network(n_inputs, 2, n_outputs)
-train_network(network, dataset, 0.5, 20, n_outputs)
-for layer in network:
-	print(layer)
+# Lectura del archivo para el entrenamiento de la red
+dataset = []
+file = open("datos_P2_EM2017_N2000.txt","r")
+lines = file.read().splitlines()
+for x in lines:
+	dataset.append([float(elem) for elem in x.split(' ')])
+	
+n_entradas = len(dataset[0]) - 1
+n_salidas = len(set([fila[-1] for fila in dataset]))
+red = inicializar_red(n_entradas, 2, n_salidas)
+entrenar_red(red, dataset, 0.5, 100, n_salidas)
+for capa in red:
+	print(capa)
