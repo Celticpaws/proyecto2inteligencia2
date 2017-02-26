@@ -63,7 +63,7 @@ class NeuralNetwork():
         return J
         # J /= m;
 
-    def back_propagate(self,X,y,iterations=100,alpha=0.1):
+    def back_propagate(self,X,y,iterations=100,alpha=0.1,epsilon=None):
         m     = len(self.matrices)
         delta = [ 0 for i in self.matrices]
         costs = []
@@ -81,7 +81,7 @@ class NeuralNetwork():
             for i in reversed(range(m-1)):
                 # print(a)
                 # sig = np.matrix(np.multiply(activation[i],(1-activation[i])))
-                sig = vsigmoid(pre_act[i],True)
+                sig = vsigmoid(activation[i],True)
                 # sig = np.matrix(np.multiply(activations[i],(1-activations[i])))
                 # print(self.matrices[m-i-1].shape)
                 # print(last_error[i].shape)
@@ -122,7 +122,7 @@ class NeuralNetwork():
 
             
 
-net = NeuralNetwork([2,3,1])
+net = NeuralNetwork([2,7,5,1])
 # print(net)
 # print(net.forward_prop(np.matrix([[2,4],[1,3]])))
 data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
