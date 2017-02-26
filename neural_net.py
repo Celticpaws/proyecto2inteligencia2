@@ -55,7 +55,7 @@ class NeuralNetwork():
         return J
         # J /= m;
 
-    def back_propagate(self,X,y,iterations=200,alpha=0.5):
+    def back_propagate(self,X,y,iterations=4,alpha=0.5):
         m           = len(self.matrices)
         delta = [ np.zeros(i.shape) for i in self.matrices]
         
@@ -63,25 +63,38 @@ class NeuralNetwork():
             # From last to first layer
             print(self.get_cost(X,y) )
             activations = self.forward_prop(X)[1]
-            last_error  = [activations[0]-y]
-            for i,a in enumerate(activations[1:]):
+            last_error  = [activations[-1]-y]
+            activations = activations[:-1]
+            activations.reverse()
+            for i,a in enumerate(activations):
                 # print(a)
-                sig = np.multiply(a,(1-a))
+                sig = np.matrix(np.multiply(a,(1-a)))
                 # print(self.matrices[m-i-1].shape)
                 # print(last_error[i].shape)
+                print(i)
+                print(m-i-1)
+                err = last_error[i]*self.matrices[m-i-1].T
+                last_error += [err.T * sig  ]
                 # import pdb; pdb.set_trace()
-                last_error += [np.multiply(last_error[i]*self.matrices[m-i-2] , sig ) ]
 
-             # print("UPDATE")
-            for i in range(len(last_error)-1):
+            # print("UPDATE")
+            last_error.reverse()
+            
+            # import pdb; pdb.set_trace()
+            self.matrices[-1] -= sum(np.multiply(last_error[-1],self.matrices[-1].T)).T * alpha
+
+            for i,e in enumerate(last_error[:-1]):
+                print("ENTREEE")
                 # print(self.matrices[i].shape)
                 # print(last_error[i].shape)
                 # print(activations[i].shape)
                 # last_error[i] 
-                delta[i] = delta[i] +  activations[i].T * last_error[i]
+                # delta[i] = delta[i] +  activations[i].T * last_error[i]
+                self.matrices[i] -= sum(last_error[i] * self.matrices[i]) * alpha
+                # self.matrices[i] = self.matrices[i] -  delta[i] * alpha
 
-            for i in range(len(last_error)-1):
-                self.matrices[i] = self.matrices[i] -  delta[i] * alpha
+            # for i in range(len(last_error)-1):
+            #     self.matrices[i] = self.matrices[i] -  delta[i] * alpha
             
                 
 
