@@ -177,7 +177,7 @@ data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
 # import pdb; pdb.set_trace()
 
 X = data_500[:,:-1]
-X = (X - X.mean(axis=0)) / X.std(axis=0)
+# X = (X - X.mean(axis=0)) / X.std(axis=0)
 y = data_500[:,-1]
 
 net.get_cost(X,y)
