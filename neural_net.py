@@ -2,7 +2,7 @@
 import numpy as np
 
 # Seed para inicialización al azar para las matrices en las redes neurales
-np.random.seed(50)
+np.random.seed(3527)
 
 # Función sigmoidal y versión vectorizada
 def sigmoid(value,derivative=False):
@@ -35,9 +35,9 @@ class NeuralNetwork():
         # de capas
         for c,r in zip(layer_list[:-1],layer_list[1:]):
             # Deberíamos romper la posible simetría de la matriz que agrega el random
-            self.matrices.append(np.matrix(np.random.random((r,c+1))))
+            self.matrices.append(np.matrix(np.random.random((r,c+1))/2))
 
-    def forward_prop(self,inp):
+    def forward_prop(self,inp,y=None):
         # Implementación de forward propagation, dada una entrada,
         # se le agrega un vector bias, se multiplica por una matriz de pesos
         # se aplica la función sigmoidal y se repite capa a capa
@@ -52,7 +52,11 @@ class NeuralNetwork():
             inp         = vsigmoid(inp)
 
 
-        cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
+        # cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
+        if y != None:
+            cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
+        else:
+            cost = 0
 
         return (inp,z,a,cost)
 
@@ -68,7 +72,8 @@ class NeuralNetwork():
         # Calculo de costo, útil para analizar convergencia del entrenamiento
         predictions = self.forward_prop(X)[0]
 
-        J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
+        # J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
+        J  = np.sum( np.abs(y - predictions))
         J /= y.shape[0]
     
         return J
@@ -95,7 +100,7 @@ class NeuralNetwork():
         for i in range(iterations):
             # Aplicamos forward propagation y calculamos el error de la
             # última capa
-            final,activation,pre_act,new_cost = self.forward_prop(X)
+            final,activation,pre_act,new_cost = self.forward_prop(X,y)
 
             # Almacenamos costos para graficar convergencia
             if epsilon and (abs(last_cost - new_cost) < epsilon):
@@ -136,6 +141,9 @@ class NeuralNetwork():
 
         predictions = self.predict(X)
         logic_y     = y > 0
+
+
+        # import pdb; pdb.set_trace()
 
         sum_of['true_positive' ] = float(np.sum( predictions &  logic_y))
         sum_of['false_negative'] = float(np.sum(~predictions &  logic_y))
@@ -182,30 +190,31 @@ def divide_data(data,perc):
             
 
 net = NeuralNetwork([4,5,5,1])
-data_500 = np.array(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
+data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
 # data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N1000.txt'),dtype=np.float128)
 
 def split(arr, cond):
   return [arr[cond], arr[~cond]]
 
 
-yes = split(data_500,data_500[:,-1] == 0.0)[1]
-no  = split(data_500,data_500[:,-1] == 0.0)[0][:len(yes)]
+#yes = split(data_500,data_500[:,-1] == 0.0)[1]
+#no  = split(data_500,data_500[:,-1] == 0.0)[0][:len(yes)]
 
-data_500 = np.matrix(np.append(yes,no,axis=0))
+# data_500 = np.matrix(np.append(yes,no,axis=0))
 
 # import pdb; pdb.set_trace()
 
 
 X = data_500[:,:-1]
+X = (X - X.mean(axis=0)) / X.std(axis=0)
 X = np.concatenate((X,np.power(X,2)),axis=1)
-# X = (X - X.mean(axis=0)) / X.std(axis=0)
 # X = (X - X.min()) / (X.max() - X.min())
 
 y = data_500[:,-1]
 
 net.get_cost(X,y)
-net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
-# net.plot_convergence(X,y,iterations=500,alpha = 0.3)
+# net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
+net.plot_convergence(X,y,iterations=5000,alpha = 0.1)
+#net.plot_convergence(X,y,iterations=10000,alpha = 0.1)
 
 net.test(X,y)
