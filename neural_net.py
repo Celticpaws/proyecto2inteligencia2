@@ -6,7 +6,7 @@ np.random.seed(50)
 
 # Función sigmoidal y versión vectorizada
 def sigmoid(value,derivative=False):
-    value = np.clip( value, -500, 500 ) # Evitamos overflow y underflow
+    value = np.clip( value, -1000, 1000 ) # Evitamos overflow y underflow
 
     sig = 1.0 / (1+np.exp(-value))
 
@@ -15,6 +15,16 @@ def sigmoid(value,derivative=False):
     else:
         return sig
 vsigmoid = np.vectorize(sigmoid)
+
+# Función tanh y versión vectorizada
+def tanh(value,derivative=False):
+    sig = (2.0 / (1+np.exp(-2*value))) -1
+
+    if derivative:
+        return  1.0 - sig**2
+    else:
+        return sig
+vtanh = np.vectorize(sigmoid)
 
 class NeuralNetwork():
     def __init__(self,layer_list):
@@ -25,7 +35,7 @@ class NeuralNetwork():
         # de capas
         for c,r in zip(layer_list[:-1],layer_list[1:]):
             # Deberíamos romper la posible simetría de la matriz que agrega el random
-            self.matrices.append(np.matrix(np.random.random((r,c+1)))+3)
+            self.matrices.append(np.matrix(np.random.random((r,c+1))))
 
     def forward_prop(self,inp):
         # Implementación de forward propagation, dada una entrada,
@@ -171,16 +181,31 @@ def divide_data(data,perc):
                 y_test  = data[train_size:, -1])
             
 
-net = NeuralNetwork([2,6,1])
-data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
+net = NeuralNetwork([4,5,5,1])
+data_500 = np.array(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
+# data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N1000.txt'),dtype=np.float128)
+
+def split(arr, cond):
+  return [arr[cond], arr[~cond]]
+
+
+yes = split(data_500,data_500[:,-1] == 0.0)[1]
+no  = split(data_500,data_500[:,-1] == 0.0)[0][:len(yes)]
+
+data_500 = np.matrix(np.append(yes,no,axis=0))
 
 # import pdb; pdb.set_trace()
 
+
 X = data_500[:,:-1]
-X = (X - X.mean(axis=0)) / X.std(axis=0)
+X = np.concatenate((X,np.power(X,2)),axis=1)
+# X = (X - X.mean(axis=0)) / X.std(axis=0)
+# X = (X - X.min()) / (X.max() - X.min())
+
 y = data_500[:,-1]
 
 net.get_cost(X,y)
-net.plot_convergence(X,y,epsilon=0.01,alpha = 0.3)
+net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
+# net.plot_convergence(X,y,iterations=500,alpha = 0.3)
 
 net.test(X,y)
