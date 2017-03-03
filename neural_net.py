@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as np
+import matplotlib.pyplot as plt
 
 # Seed para inicialización al azar para las matrices en las redes neurales
 np.random.seed(3527)
@@ -131,7 +132,7 @@ class NeuralNetwork():
 
         return (range(len(costs)), costs)
 
-    def test(self,X,y):
+    def test(self,X,y,Xorg):
         sum_of = dict(true_positive  = 0
                      ,false_negative = 0
                      ,false_positive = 0
@@ -164,10 +165,23 @@ class NeuralNetwork():
         print(" precision | {}|".format(precision))
         print(" recall    | {}|".format(recall))
         print(" f-score   | {}|".format(f_score))
+
+
+        ######Scatter PLot
+        Xorg=np.append(Xorg,predictions, axis=1)
+        Xorg=Xorg[np.argsort(Xorg.A[:, 0])]
+        Xorg=np.asarray(Xorg)
+        fig = plt.figure() 
+        ax  = fig.add_subplot(111, aspect='equal')
+        graph(Xorg,1) #Positives
+        graph(Xorg,0) #Negatives
+        
+        ax.add_artist(plt.Circle((10, 10), 6, color='b', fill=False)) #Circle
+        ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', fill=False)) #Square
+        plt.show()
             
     def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None):
         x,y = self.train(X,y,iterations,alpha,epsilon)
-        import matplotlib.pyplot as plt
         plt.plot(x,y)
         plt.show()
 
@@ -188,6 +202,21 @@ def divide_data(data,perc):
                 x_test  = data[train_size:,:-1],
                 y_test  = data[train_size:, -1])
             
+def graph(data,b):
+    N = data.shape[0]
+    aux = data[data[:,2]==b]
+    if len(aux) > 0:
+        x = aux[:,0]
+        y = aux[:,1]
+        p = aux[:,2]
+        area = np.pi * (3 * np.random.rand(N))**2  # 0 to 15 point radii
+        newX = np.linspace(0, x.ptp(), N)
+        scaled_z = (newX - newX.min()) / newX.ptp()
+        if b:
+            colors = plt.cm.Blues(scaled_z)
+        else:
+            colors = plt.cm.Oranges(scaled_z)
+        plt.scatter(x, y, marker='.', edgecolors=colors, s=area, linewidths=4)
 
 net = NeuralNetwork([4,5,5,1])
 data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
@@ -206,6 +235,7 @@ def split(arr, cond):
 
 
 X = data_500[:,:-1]
+Xorg=X
 X = (X - X.mean(axis=0)) / X.std(axis=0)
 X = np.concatenate((X,np.power(X,2)),axis=1)
 # X = (X - X.min()) / (X.max() - X.min())
@@ -217,4 +247,4 @@ net.get_cost(X,y)
 net.plot_convergence(X,y,iterations=5000,alpha = 0.1)
 #net.plot_convergence(X,y,iterations=10000,alpha = 0.1)
 
-net.test(X,y)
+net.test(X,y,Xorg)
