@@ -173,11 +173,12 @@ class NeuralNetwork():
         Xorg=np.asarray(Xorg)
         fig = plt.figure() 
         ax  = fig.add_subplot(111, aspect='equal')
+        
+        ax.add_artist(plt.Circle((10, 10), 6, color='b', alpha=0.25, fill=False)) #Circle
+        ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', alpha=0.25, fill=False)) #Square
+
         graph(Xorg,1) #Positives
         graph(Xorg,0) #Negatives
-        
-        ax.add_artist(plt.Circle((10, 10), 6, color='b', fill=False)) #Circle
-        ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', fill=False)) #Square
         plt.show()
             
     def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None):
@@ -214,9 +215,11 @@ def graph(data,b):
         scaled_z = (newX - newX.min()) / newX.ptp()
         if b:
             colors = plt.cm.Blues(scaled_z)
+            color = 'b'
         else:
             colors = plt.cm.Oranges(scaled_z)
-        plt.scatter(x, y, marker='.', edgecolors=colors, s=area, linewidths=4)
+            color = 'r'
+        plt.scatter(x, y, marker='.', edgecolors=colors, s=area, color=color, linewidths=4)
 
 net = NeuralNetwork([4,5,5,1])
 data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
@@ -244,7 +247,7 @@ y = data_500[:,-1]
 
 net.get_cost(X,y)
 # net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
-net.plot_convergence(X,y,iterations=5000,alpha = 0.1)
+net.plot_convergence(X,y,iterations=10,alpha = 0.1)
 #net.plot_convergence(X,y,iterations=10000,alpha = 0.1)
 
 net.test(X,y,Xorg)
