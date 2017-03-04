@@ -11,7 +11,7 @@ print(alpha)
 try:
     iter = int(raw_input("Introduzca número de iteraciones (default 2000): "))
 except Exception as e:
-    iter = 200
+    iter = 2000
 print(iter)
 
 

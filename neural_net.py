@@ -164,7 +164,7 @@ class NeuralNetwork():
         tot = sum(sum_of.values())
 
         accuracy  = (sum_of['true_positive']+sum_of['true_negative'])/tot
-        precision = (sum_of['true_positive'])/(sum_of['true_positive']+sum_of['false_positive'])
+        precision = (sum_of['true_positive'])/(sum_of['true_positive']+sum_of['false_positive']+sm_bias)
         recall    = sum_of['true_positive'] / (sum_of['true_positive']+sum_of['false_negative']+sm_bias)
         f_score   = 2*precision*recall/(precision+recall+sm_bias)
         print(sum_of)
@@ -186,6 +186,7 @@ class NeuralNetwork():
         Xorg=Xorg[np.argsort(Xorg.A[:, 0])]
         Xorg=np.asarray(Xorg)
         fig = plt.figure() 
+        fig.suptitle(title, fontsize=14)
         ax  = fig.add_subplot(111, aspect='equal')
         
         ax.add_artist(plt.Circle((10, 10), 6, color='b', alpha=0.25, fill=False)) #Circle
@@ -198,8 +199,18 @@ class NeuralNetwork():
 
     def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None,file="stump.png",title="stump"):
         x,y,test_costs = self.train(X,y,iterations,alpha,epsilon,cross_val)
-        plt.plot(x,y,label="Conjunto de entrenamiento")
-        plt.plot(x,test_costs,label="Conjunto de prueba")
+
+        fig = plt.figure()
+        fig.suptitle(title, fontsize=14)
+
+        ax = fig.add_subplot(111)
+        ax.set_xlabel('iteraciones')
+        ax.set_ylabel('error')
+
+        ax.plot(x,y,label="Conjunto de entrenamiento")
+        ax.plot(x,test_costs,label="Conjunto de prueba")
+        ax.legend()
+
         plt.show() if show_plot else plt.savefig(file)
         plt.close()
         
@@ -244,10 +255,8 @@ def graph_points(data,b):
 def make_title(arq,alpha,iter,size,is_train):
     capas    =  "una capa" if len(arq)==3 else "dos capas"
     data_set = ("training" if is_train else "test") + str(size)
-    res = """Red de {} con {} neuronas.
-             Alpha = {}. 
-             Iter = {}. 
-             Dataset = {}""".format(capas,arq[1],alpha,iter,data_set)
+    res = ("Red de {} con {} neuronas. Alpha = {}.\n"+
+           "Iter = {}. Dataset = {}").format(capas,arq[1],alpha,iter,data_set)
     return res
 
 def make_filename(arq,alpha,iter,size,is_train,type):
