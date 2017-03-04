@@ -63,7 +63,8 @@ class NeuralNetwork():
 
         # cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
         if not(y is None):
-            cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
+            # cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
+            cost  = -np.sum( +np.multiply(y,np.log(inp).T) + np.multiply((1-y),np.log(1-inp.T)))/ y.shape[0] 
         else:
             cost = 0
 
@@ -81,10 +82,15 @@ class NeuralNetwork():
         # Calculo de costo, útil para analizar convergencia del entrenamiento
         predictions = self.forward_prop(X)[0]
 
-        # J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
-        J  = np.sum( np.abs(y - predictions))
+        J  = -np.sum( +np.multiply(y,np.log(predictions).T) + np.multiply((1-y),np.log(1-predictions.T)))
+        # J  = np.sum( np.abs(y - predictions))
         J /= y.shape[0]
     
+        return J
+
+    def get_cost_s(self,X,y):
+        J  = -np.multiply(y,np.log(X)) - np.multiply((1-y),np.log(1-X))
+        J /= y.shape[0]
         return J
 
     def train(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None):
@@ -118,7 +124,7 @@ class NeuralNetwork():
                 break
             last_cost   =  new_cost
             costs      += [new_cost]
-            last_error  = [final-y]
+            last_error  = [self.get_cost_s(final,y)]
 
             if not (cross_val is None):
                 cross_costs += [self.get_cost(cross_val[:,:-1],cross_val[:,-1])]
@@ -225,12 +231,11 @@ class NeuralNetwork():
 def divide_data(data,perc):
     from math import ceil
     data_size  = data.shape[0]
-    train_size = ceil(data_size * perc)
+    train_size = int(ceil(data_size * perc))
 
     return dict(x_train = data[:train_size,:-1],
                 y_train = data[:train_size, -1],
-                x_test  = data[train_size:,:-1],
-                y_test  = data[train_size:, -1])
+                cross_t = data[train_size:,:])
             
 def graph_points(data,b):
     N   = data.shape[0]
@@ -254,13 +259,13 @@ def graph_points(data,b):
 
 def make_title(arq,alpha,iter,size,is_train):
     capas    =  "una capa" if len(arq)==3 else "dos capas"
-    data_set = ("training" if is_train else "test") + str(size)
+    data_set = ("training" if is_train else "test") + str(size).replace(".","d")
     res = ("Red de {} con {} neuronas. Alpha = {}.\n"+
            "Iter = {}. Dataset = {}").format(capas,arq[1],alpha,iter,data_set)
     return res
 
 def make_filename(arq,alpha,iter,size,is_train,type):
-    dataset = str(size) + ("tr" if is_train else "te")
+    dataset = str(size).replace(".","d") + ("tr" if is_train else "te")
     iter    = str(iter) + "iter_"
     arq     = "".join(map(str,arq)) + "arq_"
     alpha   = str(alpha).replace(".","d") + "alpha_"

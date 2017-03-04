@@ -27,7 +27,7 @@ for sz in [500,1000,2000]:
 
         X    = train_s[:,:-1]
         Xorg = X
-        test_orig = np.matrix(np.copy(test_s))
+        test_orig = np.matrix(np.copy(test_s))[:,:-1]
         size = X.shape[0]
 
         # Normalizamos datos de entrenamiento y prueba con media y varianza
