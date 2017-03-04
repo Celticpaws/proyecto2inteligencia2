@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 # Seed para inicialización al azar para las matrices en las redes neurales
-np.random.seed(50)
+np.random.seed(3527)
 
 # Función sigmoidal y versión vectorizada
 def sigmoid(value,derivative=False):
-    value = np.clip( value, -500, 500 ) # Evitamos overflow y underflow
+    value = np.clip( value, -1000, 1000 ) # Evitamos overflow y underflow
 
     sig = 1.0 / (1+np.exp(-value))
 
@@ -15,6 +17,20 @@ def sigmoid(value,derivative=False):
     else:
         return sig
 vsigmoid = np.vectorize(sigmoid)
+
+# Función tanh y versión vectorizada
+def tanh(value,derivative=False):
+    sig = (2.0 / (1+np.exp(-2*value))) -1
+
+    if derivative:
+        return  1.0 - sig**2
+    else:
+        return sig
+vtanh = np.vectorize(sigmoid)
+
+def split(arr, cond):
+  return [arr[cond], arr[~cond]]
+
 
 class NeuralNetwork():
     def __init__(self,layer_list):
@@ -25,9 +41,9 @@ class NeuralNetwork():
         # de capas
         for c,r in zip(layer_list[:-1],layer_list[1:]):
             # Deberíamos romper la posible simetría de la matriz que agrega el random
-            self.matrices.append(np.matrix(np.random.random((r,c+1)))+3)
+            self.matrices.append(np.matrix(np.random.random((r,c+1))))
 
-    def forward_prop(self,inp):
+    def forward_prop(self,inp,y=None):
         # Implementación de forward propagation, dada una entrada,
         # se le agrega un vector bias, se multiplica por una matriz de pesos
         # se aplica la función sigmoidal y se repite capa a capa
@@ -42,7 +58,11 @@ class NeuralNetwork():
             inp         = vsigmoid(inp)
 
 
-        cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
+        # cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
+        if not(y is None):
+            cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
+        else:
+            cost = 0
 
         return (inp,z,a,cost)
 
@@ -58,12 +78,13 @@ class NeuralNetwork():
         # Calculo de costo, útil para analizar convergencia del entrenamiento
         predictions = self.forward_prop(X)[0]
 
-        J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
+        # J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
+        J  = np.sum( np.abs(y - predictions))
         J /= y.shape[0]
     
         return J
 
-    def train(self,X,y,iterations=None,alpha=0.1,epsilon=None):
+    def train(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None):
         # Entrenamiento mediante forward y backpropagations
         # hasta llegar a la convergencia o cumplir con las iteraciones 
         # dadas
@@ -77,6 +98,7 @@ class NeuralNetwork():
         m     = len(self.matrices)
         delta = [ 0 for i in self.matrices]
         costs = []
+        cross_costs = []
 
         last_cost = 0
         new_cost  = 500
@@ -85,17 +107,18 @@ class NeuralNetwork():
         for i in range(iterations):
             # Aplicamos forward propagation y calculamos el error de la
             # última capa
-            final,activation,pre_act,new_cost = self.forward_prop(X)
+            final,activation,pre_act,new_cost = self.forward_prop(X,y)
 
             # Almacenamos costos para graficar convergencia
             if epsilon and (abs(last_cost - new_cost) < epsilon):
                 print("Convergence in {} iterations".format(i))
                 break
-            last_cost =  new_cost
-            costs    += [new_cost]
-
+            last_cost   =  new_cost
+            costs      += [new_cost]
             last_error  = [final-y]
 
+            if not (cross_val is None):
+                cross_costs += [self.get_cost(cross_val[:,:-1],cross_val[:,-1])]
 
             # Calculamos los errores de las última capas hacia las primeras
             for i in reversed(range(m-1)):
@@ -114,18 +137,21 @@ class NeuralNetwork():
 
         print("last cost: {}".format(new_cost))
 
-        return (range(len(costs)), costs)
+        return (range(len(costs)),costs,cross_costs)
 
-    def test(self,X,y):
+    def test(self,X,y,Xorg):
         sum_of = dict(true_positive  = 0
                      ,false_negative = 0
                      ,false_positive = 0
                      ,true_negative  = 0)
 
-        sm_bias = 0.1**(-10)
+        sm_bias = 0.1**(20)
 
         predictions = self.predict(X)
         logic_y     = y > 0
+
+
+        # import pdb; pdb.set_trace()
 
         sum_of['true_positive' ] = float(np.sum( predictions &  logic_y))
         sum_of['false_negative'] = float(np.sum(~predictions &  logic_y))
@@ -135,22 +161,41 @@ class NeuralNetwork():
         tot = sum(sum_of.values())
 
         accuracy  = (sum_of['true_positive']+sum_of['true_negative'])/tot
-        precision = (sum_of['true_positive']+sum_of['false_positive'])/tot
+        precision = (sum_of['true_positive'])/(sum_of['true_positive']+sum_of['false_positive'])
         recall    = sum_of['true_positive'] / (sum_of['true_positive']+sum_of['false_negative']+sm_bias)
         f_score   = 2*precision*recall/(precision+recall+sm_bias)
         print(sum_of)
 
-        print("           | value  |")
-        print("-----------|--------|")
-        print(" accuracy  | {}|".format(accuracy))
-        print(" precision | {}|".format(precision))
-        print(" recall    | {}|".format(recall))
-        print(" f-score   | {}|".format(f_score))
-            
-    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None):
-        x,y = self.train(X,y,iterations,alpha,epsilon)
-        import matplotlib.pyplot as plt
+        print("| metric    | value  |")
+        print("|-----------|--------|")
+        print("| accuracy  | {}|".format(accuracy))
+        print("| precision | {}|".format(precision))
+        print("| recall    | {}|".format(recall))
+        print("| f-score   | {}|".format(f_score))
+
+
+
+    def plot_prediction(self,X,y,Xorg):
+        predictions = self.predict(X)
+
+        ######Scatter PLot
+        Xorg=np.append(Xorg,predictions, axis=1)
+        Xorg=Xorg[np.argsort(Xorg.A[:, 0])]
+        Xorg=np.asarray(Xorg)
+        fig = plt.figure() 
+        ax  = fig.add_subplot(111, aspect='equal')
+        
+        ax.add_artist(plt.Circle((10, 10), 6, color='b', alpha=0.25, fill=False)) #Circle
+        ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', alpha=0.25, fill=False)) #Square
+
+        graph(Xorg,1) #Positives
+        graph(Xorg,0) #Negatives
+        plt.show()
+
+    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None):
+        x,y,test_costs = self.train(X,y,iterations,alpha,epsilon,cross_val)
         plt.plot(x,y)
+        plt.plot(x,test_costs)
         plt.show()
 
     def __str__(self):
@@ -170,17 +215,62 @@ def divide_data(data,perc):
                 x_test  = data[train_size:,:-1],
                 y_test  = data[train_size:, -1])
             
+def graph(data,b):
+    N   = data.shape[0]
+    aux = data[data[:,2]==b]
+    if len(aux) > 0:
+        x = aux[:,0]
+        y = aux[:,1]
+        p = aux[:,2]
+        area = np.pi * (3 * np.random.rand(N))**2  # 0 to 15 point radii
+        newX = np.linspace(0, x.ptp(), N)
+        scaled_z = (newX - newX.min()) / newX.ptp()
+        if b:
+            colors = plt.cm.Blues(scaled_z)
+            color = 'b'
+        else:
+            colors = plt.cm.Oranges(scaled_z)
+            color = 'r'
+        plt.scatter(x, y, marker='.', edgecolors=colors, s=area, color=color, linewidths=4)
 
-net = NeuralNetwork([2,6,1])
-data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
+# Todas las arquitecturas con una capa oculta con 2 a 10 neuronas 
+# y de dos capas ocultas con 2,5 y 10 neuronas en cada una
+neural_arq = [[4,i,1] for i in range(2,11)] + [[4,2,2,1],[4,5,5,1],[4,10,10,2]] 
 
-# import pdb; pdb.set_trace()
+for sz in [500,1000,2000]:
+    for arq in neural_arq:
+        net = NeuralNetwork(arq)
+        train_s = np.matrix(np.loadtxt('datos_P2_EM2017_N'+str(sz)+'.txt'),dtype=np.float128)
+        test_s  = np.matrix(np.loadtxt('prueba_N'+str(sz)+'.txt'),dtype=np.float128)
 
-X = data_500[:,:-1]
-# X = (X - X.mean(axis=0)) / X.std(axis=0)
-y = data_500[:,-1]
+        X    = train_s[:,:-1]
+        Xorg = X
+        test_orig = np.matrix(np.copy(test_s))
 
-net.get_cost(X,y)
-net.plot_convergence(X,y,epsilon=0.01,alpha = 0.3)
+        # Normalizamos datos de entrenamiento y prueba con media y varianza
+        # de datos de entrenamiento
+        test_s[:,:-1] = (test_s[:,:-1] - X.mean(axis=0)) / X.std(axis=0)
+        X             = (X - X.mean(axis=0)) / X.std(axis=0)
 
-net.test(X,y)
+        # Aumentamos los datos terminos al cuadrado
+        X = np.concatenate((X,np.power(X,2)),axis=1)
+        y = train_s[:,-1]
+        test_s = np.concatenate( (np.concatenate(
+                                                 (test_s[:,:-1],np.power(test_s[:,:-1],2))
+                                                 ,axis=1)
+                                  ,test_s[:,-1])
+                               ,axis=1)
+
+        net.get_cost(X,y)
+        net.plot_convergence(X,y,iterations=1000,alpha = 0.3,cross_val=test_s)
+
+        print("Prediction for datasets size " + str(y.shape[0]))
+
+        print("On training set")
+        net.test(X,y,Xorg)
+        net.plot_prediction(X,y,Xorg)
+        
+        print("On test set")
+        net.test(test_s[:,:-1],test_s[:,-1],test_orig)
+        net.plot_prediction(test_s[:,:-1],test_s[:,-1],test_orig)
+        print("-----------------------------------------------\n\n\n")
