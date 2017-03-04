@@ -2,6 +2,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save*/show): ") == "show"
+
+img_prefix = "images/"
 
 # Seed para inicialización al azar para las matrices en las redes neurales
 np.random.seed(3527)
@@ -175,7 +178,7 @@ class NeuralNetwork():
 
 
 
-    def plot_prediction(self,X,y,Xorg):
+    def plot_prediction(self,X,y,Xorg,file="stump.png",title="stump"):
         predictions = self.predict(X)
 
         ######Scatter PLot
@@ -188,15 +191,18 @@ class NeuralNetwork():
         ax.add_artist(plt.Circle((10, 10), 6, color='b', alpha=0.25, fill=False)) #Circle
         ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', alpha=0.25, fill=False)) #Square
 
-        graph(Xorg,1) #Positives
-        graph(Xorg,0) #Negatives
-        plt.show()
+        graph_points(Xorg,1) #Positives
+        graph_points(Xorg,0) #Negatives
+        plt.show() if show_plot else plt.savefig(file)
+        plt.close()
 
-    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None):
+    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None,file="stump.png",title="stump"):
         x,y,test_costs = self.train(X,y,iterations,alpha,epsilon,cross_val)
-        plt.plot(x,y)
-        plt.plot(x,test_costs)
-        plt.show()
+        plt.plot(x,y,label="Conjunto de entrenamiento")
+        plt.plot(x,test_costs,label="Conjunto de prueba")
+        plt.show() if show_plot else plt.savefig(file)
+        plt.close()
+        
 
     def __str__(self):
         # Representación de la red neural como string
@@ -215,7 +221,7 @@ def divide_data(data,perc):
                 x_test  = data[train_size:,:-1],
                 y_test  = data[train_size:, -1])
             
-def graph(data,b):
+def graph_points(data,b):
     N   = data.shape[0]
     aux = data[data[:,2]==b]
     if len(aux) > 0:
@@ -231,46 +237,23 @@ def graph(data,b):
         else:
             colors = plt.cm.Oranges(scaled_z)
             color = 'r'
+
         plt.scatter(x, y, marker='.', edgecolors=colors, s=area, color=color, linewidths=4)
-
-# Todas las arquitecturas con una capa oculta con 2 a 10 neuronas 
-# y de dos capas ocultas con 2,5 y 10 neuronas en cada una
-neural_arq = [[4,i,1] for i in range(2,11)] + [[4,2,2,1],[4,5,5,1],[4,10,10,2]] 
-
-for sz in [500,1000,2000]:
-    for arq in neural_arq:
-        net = NeuralNetwork(arq)
-        train_s = np.matrix(np.loadtxt('datos_P2_EM2017_N'+str(sz)+'.txt'),dtype=np.float128)
-        test_s  = np.matrix(np.loadtxt('prueba_N'+str(sz)+'.txt'),dtype=np.float128)
-
-        X    = train_s[:,:-1]
-        Xorg = X
-        test_orig = np.matrix(np.copy(test_s))
-
-        # Normalizamos datos de entrenamiento y prueba con media y varianza
-        # de datos de entrenamiento
-        test_s[:,:-1] = (test_s[:,:-1] - X.mean(axis=0)) / X.std(axis=0)
-        X             = (X - X.mean(axis=0)) / X.std(axis=0)
-
-        # Aumentamos los datos terminos al cuadrado
-        X = np.concatenate((X,np.power(X,2)),axis=1)
-        y = train_s[:,-1]
-        test_s = np.concatenate( (np.concatenate(
-                                                 (test_s[:,:-1],np.power(test_s[:,:-1],2))
-                                                 ,axis=1)
-                                  ,test_s[:,-1])
-                               ,axis=1)
-
-        net.get_cost(X,y)
-        net.plot_convergence(X,y,iterations=1000,alpha = 0.3,cross_val=test_s)
-
-        print("Prediction for datasets size " + str(y.shape[0]))
-
-        print("On training set")
-        net.test(X,y,Xorg)
-        net.plot_prediction(X,y,Xorg)
         
-        print("On test set")
-        net.test(test_s[:,:-1],test_s[:,-1],test_orig)
-        net.plot_prediction(test_s[:,:-1],test_s[:,-1],test_orig)
-        print("-----------------------------------------------\n\n\n")
+
+def make_title(arq,alpha,iter,size,is_train):
+    capas    =  "una capa" if len(arq)==3 else "dos capas"
+    data_set = ("training" if is_train else "test") + str(size)
+    res = """Red de {} con {} neuronas.
+             Alpha = {}. 
+             Iter = {}. 
+             Dataset = {}""".format(capas,arq[1],alpha,iter,data_set)
+    return res
+
+def make_filename(arq,alpha,iter,size,is_train,type):
+    dataset = str(size) + ("tr" if is_train else "te")
+    iter    = str(iter) + "iter_"
+    arq     = "".join(map(str,arq)) + "arq_"
+    alpha   = str(alpha).replace(".","d") + "alpha_"
+    # print(img_prefix + iter + arq  + alpha + dataset + type +".png")
+    return img_prefix + arq + iter + alpha + type + "_" + dataset +".png"
