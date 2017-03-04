@@ -2,6 +2,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save*/show): ") == "show"
+
+img_prefix = "images/"
+
 # Seed para inicialización al azar para las matrices en las redes neurales
 np.random.seed(3527)
 
@@ -40,7 +44,7 @@ class NeuralNetwork():
         # de capas
         for c,r in zip(layer_list[:-1],layer_list[1:]):
             # Deberíamos romper la posible simetría de la matriz que agrega el random
-            self.matrices.append(np.matrix(np.random.random((r,c+1))/2))
+            self.matrices.append(np.matrix(np.random.random((r,c+1))))
 
     def forward_prop(self,inp,y=None):
         # Implementación de forward propagation, dada una entrada,
@@ -58,7 +62,7 @@ class NeuralNetwork():
 
 
         # cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
-        if y != None:
+        if not(y is None):
             cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
         else:
             cost = 0
@@ -83,7 +87,7 @@ class NeuralNetwork():
     
         return J
 
-    def train(self,X,y,iterations=None,alpha=0.1,epsilon=None):
+    def train(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None):
         # Entrenamiento mediante forward y backpropagations
         # hasta llegar a la convergencia o cumplir con las iteraciones 
         # dadas
@@ -97,6 +101,7 @@ class NeuralNetwork():
         m     = len(self.matrices)
         delta = [ 0 for i in self.matrices]
         costs = []
+        cross_costs = []
 
         last_cost = 0
         new_cost  = 500
@@ -111,11 +116,12 @@ class NeuralNetwork():
             if epsilon and (abs(last_cost - new_cost) < epsilon):
                 print("Convergence in {} iterations".format(i))
                 break
-            last_cost =  new_cost
-            costs    += [new_cost]
-
+            last_cost   =  new_cost
+            costs      += [new_cost]
             last_error  = [final-y]
 
+            if not (cross_val is None):
+                cross_costs += [self.get_cost(cross_val[:,:-1],cross_val[:,-1])]
 
             # Calculamos los errores de las última capas hacia las primeras
             for i in reversed(range(m-1)):
@@ -134,7 +140,7 @@ class NeuralNetwork():
 
         print("last cost: {}".format(new_cost))
 
-        return (range(len(costs)), costs)
+        return (range(len(costs)),costs,cross_costs)
 
     def test(self,X,y,Xorg):
         sum_of = dict(true_positive  = 0
@@ -142,7 +148,7 @@ class NeuralNetwork():
                      ,false_positive = 0
                      ,true_negative  = 0)
 
-        sm_bias = 0.1**(-10)
+        sm_bias = 0.1**(20)
 
         predictions = self.predict(X)
         logic_y     = y > 0
@@ -158,18 +164,22 @@ class NeuralNetwork():
         tot = sum(sum_of.values())
 
         accuracy  = (sum_of['true_positive']+sum_of['true_negative'])/tot
-        precision = (sum_of['true_positive']+sum_of['false_positive'])/tot
+        precision = (sum_of['true_positive'])/(sum_of['true_positive']+sum_of['false_positive'])
         recall    = sum_of['true_positive'] / (sum_of['true_positive']+sum_of['false_negative']+sm_bias)
         f_score   = 2*precision*recall/(precision+recall+sm_bias)
         print(sum_of)
 
-        print("           | value  |")
-        print("-----------|--------|")
-        print(" accuracy  | {}|".format(accuracy))
-        print(" precision | {}|".format(precision))
-        print(" recall    | {}|".format(recall))
-        print(" f-score   | {}|".format(f_score))
+        print("| metric    | value  |")
+        print("|-----------|--------|")
+        print("| accuracy  | {}|".format(accuracy))
+        print("| precision | {}|".format(precision))
+        print("| recall    | {}|".format(recall))
+        print("| f-score   | {}|".format(f_score))
 
+
+
+    def plot_prediction(self,X,y,Xorg,file="stump.png",title="stump"):
+        predictions = self.predict(X)
 
         ######Scatter PLot
         Xorg=np.append(Xorg,predictions, axis=1)
@@ -181,14 +191,18 @@ class NeuralNetwork():
         ax.add_artist(plt.Circle((10, 10), 6, color='b', alpha=0.25, fill=False)) #Circle
         ax.add_artist(plt.Rectangle((0, 0), 20, 20, color='r', alpha=0.25, fill=False)) #Square
 
-        graph(Xorg,1) #Positives
-        graph(Xorg,0) #Negatives
-        plt.show()
-            
-    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None):
-        x,y = self.train(X,y,iterations,alpha,epsilon)
-        plt.plot(x,y)
-        plt.show()
+        graph_points(Xorg,1) #Positives
+        graph_points(Xorg,0) #Negatives
+        plt.show() if show_plot else plt.savefig(file)
+        plt.close()
+
+    def plot_convergence(self,X,y,iterations=None,alpha=0.1,epsilon=None,cross_val=None,file="stump.png",title="stump"):
+        x,y,test_costs = self.train(X,y,iterations,alpha,epsilon,cross_val)
+        plt.plot(x,y,label="Conjunto de entrenamiento")
+        plt.plot(x,test_costs,label="Conjunto de prueba")
+        plt.show() if show_plot else plt.savefig(file)
+        plt.close()
+        
 
     def __str__(self):
         # Representación de la red neural como string
@@ -207,8 +221,8 @@ def divide_data(data,perc):
                 x_test  = data[train_size:,:-1],
                 y_test  = data[train_size:, -1])
             
-def graph(data,b):
-    N = data.shape[0]
+def graph_points(data,b):
+    N   = data.shape[0]
     aux = data[data[:,2]==b]
     if len(aux) > 0:
         x = aux[:,0]
@@ -223,25 +237,23 @@ def graph(data,b):
         else:
             colors = plt.cm.Oranges(scaled_z)
             color = 'r'
+
         plt.scatter(x, y, marker='.', edgecolors=colors, s=area, color=color, linewidths=4)
+        
 
-net = NeuralNetwork([4,5,5,1])
-data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
-# data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N1000.txt'),dtype=np.float128)
+def make_title(arq,alpha,iter,size,is_train):
+    capas    =  "una capa" if len(arq)==3 else "dos capas"
+    data_set = ("training" if is_train else "test") + str(size)
+    res = """Red de {} con {} neuronas.
+             Alpha = {}. 
+             Iter = {}. 
+             Dataset = {}""".format(capas,arq[1],alpha,iter,data_set)
+    return res
 
-
-
-X = data_500[:,:-1]
-Xorg=X
-X = (X - X.mean(axis=0)) / X.std(axis=0)
-X = np.concatenate((X,np.power(X,2)),axis=1)
-# X = (X - X.min()) / (X.max() - X.min())
-
-y = data_500[:,-1]
-
-net.get_cost(X,y)
-# net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
-net.plot_convergence(X,y,iterations=5000,alpha = 0.1)
-#net.plot_convergence(X,y,iterations=10000,alpha = 0.1)
-
-net.test(X,y,Xorg)
+def make_filename(arq,alpha,iter,size,is_train,type):
+    dataset = str(size) + ("tr" if is_train else "te")
+    iter    = str(iter) + "iter_"
+    arq     = "".join(map(str,arq)) + "arq_"
+    alpha   = str(alpha).replace(".","d") + "alpha_"
+    # print(img_prefix + iter + arq  + alpha + dataset + type +".png")
+    return img_prefix + arq + iter + alpha + type + "_" + dataset +".png"

@@ -1,3 +1,4 @@
+
 # Introducción
 
   Las redes neuronales (también conocidos como sistemas conexionistas) son un enfoque computacional, que se basa en una gran colección de unidades neurales (también conocido como neuronas artificiales), para modelar libremente la forma en que un cerebro biológico resuelve problemas con grandes grupos de neuronas biológicas conectados por los axones. Cada unidad neuronal está conectada con otras, y los enlaces se pueden aplicar en su efecto sobre el estado de activación de unidades neuronales conectadas. Cada individuo de la unidad neuronal puede tener una función de suma, que combina conjuntamente los valores de todas las entradas. 
@@ -31,3 +32,4 @@ Usando como semillas para la generación de números aleatorios *42*, *5872* y
 # Resultados y discusión
 
 # Conclusiones
+

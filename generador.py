@@ -23,8 +23,8 @@ num_tests = int(sys.argv[2])
 archivo = open('prueba_N'+str(num_tests)+'.txt', 'w')
 
 for i in range(num_tests):
-    x = random()*10
-    y = random()*10
+    x = random()*20
+    y = random()*20
     is_in_circ = int((x - 10) ** 2 + (y - 10) ** 2 <= 36)
     archivo.write("{} {} {}\n".format(x,y,is_in_circ))
 
