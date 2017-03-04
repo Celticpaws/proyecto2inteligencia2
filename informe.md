@@ -21,3 +21,13 @@ python generador.py 7219735 2000
 
 Usando como semillas para la generación de números aleatorios *42*, *5872* y 
 *7219735* respectivamente.
+
+# Ejercicio 1
+
+# Ejercicio 2
+
+# Ejercicio 3
+
+# Resultados y discusión
+
+# Conclusiones
