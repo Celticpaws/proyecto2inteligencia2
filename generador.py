@@ -6,15 +6,26 @@
 #          Nabil J. Marquez 11-10683
 # Last Revision: 23/02/17
 
-from math import exp
-from random import seed
-from random import random
+# from math import exp
+import sys
+from random import seed, random
 
-archivo = open('pruebas.txt', 'w+')
+if (len(sys.argv)!=3):
+    print("Error, usar:")
+    print("    python generador.py semilla num_ejemplos")
+    exit()
 
-for i in range(100):
-	x = random()*10
-	y = random()*10
-	archivo.write(str(x)+" "+str(y)+" \n")
+seed     = seed(int(sys.argv[1]))
+num_tests = int(sys.argv[2])
+
+
+
+archivo = open('prueba_N'+str(num_tests)+'.txt', 'w')
+
+for i in range(num_tests):
+    x = random()*10
+    y = random()*10
+    is_in_circ = int((x - 10) ** 2 + (y - 10) ** 2 <= 36)
+    archivo.write("{} {} {}\n".format(x,y,is_in_circ))
 
 archivo.close()
