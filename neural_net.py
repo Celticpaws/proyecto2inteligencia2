@@ -27,6 +27,10 @@ def tanh(value,derivative=False):
         return sig
 vtanh = np.vectorize(sigmoid)
 
+def split(arr, cond):
+  return [arr[cond], arr[~cond]]
+
+
 class NeuralNetwork():
     def __init__(self,layer_list):
         self.matrices  = []
@@ -225,16 +229,6 @@ net = NeuralNetwork([4,5,5,1])
 data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N500.txt'),dtype=np.float128)
 # data_500 = np.matrix(np.loadtxt('datos_P2_EM2017_N1000.txt'),dtype=np.float128)
 
-def split(arr, cond):
-  return [arr[cond], arr[~cond]]
-
-
-#yes = split(data_500,data_500[:,-1] == 0.0)[1]
-#no  = split(data_500,data_500[:,-1] == 0.0)[0][:len(yes)]
-
-# data_500 = np.matrix(np.append(yes,no,axis=0))
-
-# import pdb; pdb.set_trace()
 
 
 X = data_500[:,:-1]
@@ -247,7 +241,7 @@ y = data_500[:,-1]
 
 net.get_cost(X,y)
 # net.plot_convergence(X,y,epsilon=0.01,alpha = 0.1)
-net.plot_convergence(X,y,iterations=10,alpha = 0.1)
+net.plot_convergence(X,y,iterations=5000,alpha = 0.1)
 #net.plot_convergence(X,y,iterations=10000,alpha = 0.1)
 
 net.test(X,y,Xorg)
