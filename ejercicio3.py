@@ -8,9 +8,9 @@ except Exception as e:
 print(alpha)
 
 try:
-    iter = int(raw_input("Introduzca número de iteraciones (default 1000): "))
+    iter = int(raw_input("Introduzca número de iteraciones (default 20): "))
 except Exception as e:
-    iter = 1000
+    iter = 20
 print(iter)
 
 def to_binary(row):
@@ -59,6 +59,11 @@ for train_size in [0.5,0.6,0.7,0.8,0.9]:
     dat = divide_data(tern_dat,train_size)
     for arq in neural_arq:
         net = NeuralNetwork(arq)
+
+        title = make_title(arq,alpha,iter,train_size,is_train=True)
+        fn    = make_filename(arq,alpha,iter,train_size,True,"conv")
+        net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
+                            ,alpha = alpha,cross_val=dat["cross_t"],title=title,file=fn)
         break
         # title = make_title(arq,alpha,iter,train_size,is_train=True)
         # fn    = make_filename(arq,alpha,iter,train_size,True,"conv")

@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save*/show): ") == "show"
+show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save/show*): ") != "show"
 
 img_prefix = "images/"
 
@@ -56,6 +56,8 @@ class NeuralNetwork():
             ones_vect   = np.matrix(np.ones( (inp.shape[0],1) ))
             inp         = np.append(ones_vect,inp,axis=1)
             a           += [inp]
+            print(layers.shape)
+            print(inp.T.shape)
             inp         = (layer*inp.T).T
             z += [inp]
             inp         = vsigmoid(inp)
@@ -73,6 +75,7 @@ class NeuralNetwork():
     def predict(self,inp,treshold=0.5):
         # Predicción para un ejemplo o conjunto de ejemplos, se aplica forward
         # propagation y se estudia si la activación fue mayor a un treshold 
+        print(inp)
         val = self.forward_prop(inp)[0]
         # import pdb; pdb.set_trace()
         return val >= treshold
