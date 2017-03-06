@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save/show*): ") != "show"
+show_plot = raw_input("Desea mostrar los gráficos o guardarlos? (save/show*): ") == "show"
 
 img_prefix = "images/"
 
