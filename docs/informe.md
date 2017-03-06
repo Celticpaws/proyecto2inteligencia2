@@ -25,6 +25,34 @@ Usando como semillas para la generación de números aleatorios *42*, *5872* y
 
 # Ejercicio 1
 
+Para este ejercicio implementamos, en *neural_net.py* la clase NeuralNetwork,
+que dada una lista con las dimensiones de cada capa de neuronas 
+(incluyendo entrada y salida), internamente esto generara una lista de 
+matrices representando las conexiones entre cada una de las capas. Los pesos
+son inicializados en valores al azar dados por una semillas fija.
+
+La clase NeuralNet implementa los metodos *forward_prop* que al recibir una
+entrada y el valor esperado de salida, realiza las multiplicaciones de matrices
+y activaciones necesarias para obtener un valor de salida, adicionalmente a esto
+calcula el costo asociado a esta propagación.
+
+El método *predict* realiza una propagación y dado un *treshold* entrega la 
+predicción más cercana a los valores de salida que entregó la red.
+
+El método *train* dada una entrada, salidas esperadas, un tasa de aprendizaje $\alpha$, y
+un conjunto de validación, entrena la red almacenando todos los costos para los 
+conjuntos de entrenamiento y validación.
+
+*test* realiza el conteo de clasificaciones correctas y las métricas asociadas
+como precision, accuracy, sensibilidad, entre otros.
+
+*plot_prediction* dato un conjunto de puntos realiza un *scatter plot*, coloreando
+de rojos los puntos clasificados como afuera del círculo y como azules los internos.
+Adicionalmente se muestra el área del círculo.
+
+*plot_convergence* entrena la red y grafica las funciones de costo vs iteraciones
+para el conjunto de entrenamiento y de validación dados,
+
 # Ejercicio 2
 
 # Ejercicio 3
