@@ -56,7 +56,7 @@ class NeuralNetwork():
             ones_vect   = np.matrix(np.ones( (inp.shape[0],1) ))
             inp         = np.append(ones_vect,inp,axis=1)
             a           += [inp]
-            print(layers.shape)
+            print(layer.shape)
             print(inp.T.shape)
             inp         = (layer*inp.T).T
             z += [inp]
