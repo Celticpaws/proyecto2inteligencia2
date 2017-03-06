@@ -34,6 +34,7 @@ data =  np.loadtxt('bezdekIris.data',dtype=str,delimiter=",")
 np.random.shuffle(data)
 np.random.shuffle(data)
 
+'''
 bin_dat = np.matrix(map(to_binary,data),dtype=np.float128)
 
 neural_arq = [[4,i,1] for i in range(4,11)] + [[4,5,5,1]]
@@ -47,7 +48,7 @@ for train_size in [0.5,0.6,0.7,0.8,0.9]:
         fn    = make_filename(arq,alpha,iter,train_size,True,"conv")
         net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
                             ,alpha = alpha,cross_val=dat["cross_t"],title=title,file=fn)
-
+'''
 
 neural_arq = [[4,i,3] for i in range(4,11)] + [[4,5,5,3]]
 
