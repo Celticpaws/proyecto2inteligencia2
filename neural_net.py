@@ -129,7 +129,8 @@ class NeuralNetwork():
             last_error  = [final-y]
 
             if not (cross_val is None):
-                cross_costs += [self.get_cost(cross_val[:,:-1],cross_val[:,-1])]
+                # import pdb; pdb.set_trace()
+                cross_costs += [self.get_cost(cross_val[:,:-y.shape[1]],cross_val[:,-y.shape[1]:])]
 
             # Calculamos los errores de las última capas hacia las primeras
             for i in reversed(range(m-1)):
@@ -236,7 +237,7 @@ def divide_data(data,perc,y_cols=1):
     train_size = int(ceil(data_size * perc))
 
     return dict(x_train = data[:train_size,:-y_cols],
-                y_train = data[:train_size, -y_cols],
+                y_train = data[:train_size,-y_cols:],
                 cross_t = data[train_size:,:])
             
 def graph_points(data,b):
