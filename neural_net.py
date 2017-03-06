@@ -53,13 +53,10 @@ class NeuralNetwork():
         z = []
         a = []
         for layer in self.matrices:
-            print("iterando")
             # import pdb;pdb.set_trace()
             ones_vect   = np.matrix(np.ones( (inp.shape[0],1) ))
             inp         = np.append(ones_vect,inp,axis=1)
             a           += [inp]
-            print(layer.shape)
-            print(inp.T.shape)
             inp         = (layer*inp.T).T
             z += [inp]
             inp         = vsigmoid(inp)
