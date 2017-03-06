@@ -140,7 +140,7 @@ Los mejores conjuntos de entrenamiento encontrados variando en correlacion al nu
 ## Ejercicio 3
 Entrenando la red sobre los datos del conjunto Iris Data Set se obtienen los siguientes resultados de manera general
 \begin{center}
-\includegraphics[height=5cm]{images/e2/441arq_20iter_0d3alpha_scat_500te.png}
+\includegraphics[height=5cm]{images/e3/441arq_20iter_0d3alpha_scat_500te.png}
 \end{center}
 
 
@@ -149,81 +149,81 @@ Entrenando la red sobre los datos del conjunto Iris Data Set se obtienen los sig
 * Para 4 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/441arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/441arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/441arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/441arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/441arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/441arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/441arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/441arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/441arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/441arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 5 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/451arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/451arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/451arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/451arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/451arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/451arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/451arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/451arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/451arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/451arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 6 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/461arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/461arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/461arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/461arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/461arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/461arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/461arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/461arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/461arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/461arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 7 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/471arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/471arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/471arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/471arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/471arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/471arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/471arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/471arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/471arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/471arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 8 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/481arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/481arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/481arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/481arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/481arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/481arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/481arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/481arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/481arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/481arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 9 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/491arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/491arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/491arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/491arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/491arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/491arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/491arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/491arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/491arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/491arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 10 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/4101arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/4101arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/4101arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/4101arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/4101arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/4101arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/4101arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/4101arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/4101arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/4101arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 5 neuronas en 2 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/4551arq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/4551arq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/4551arq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/4551arq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/4551arq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/4551arq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/4551arq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/4551arq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/4551arq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/4551arq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 ### Clasificador de 3 clases
@@ -231,81 +231,81 @@ Entrenando la red sobre los datos del conjunto Iris Data Set se obtienen los sig
 * Para 4 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/443seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/443seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/443seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/443seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/443seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/443seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/443seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/443seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/443seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/443seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 5 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/453seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/453seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/453seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/453seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/453seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/453seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/453seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/453seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/453seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/453seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 6 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/463seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/463seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/463seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/463seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/463seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/463seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/463seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/463seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/463seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/463seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 7 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/473seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/473seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/473seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/473seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/473seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/473seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/473seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/473seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/473seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/473seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 8 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/483seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/483seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/483seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/483seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/483seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/483seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/483seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/483seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/483seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/483seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 9 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/493seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/493seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/493seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/493seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/493seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/493seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/493seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/493seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/493seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/493seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 10 neuronas en 1 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/4103seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/4103seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/4103seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/4103seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/4103seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/4103seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/4103seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/4103seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/4103seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/4103seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 * Para 5 neuronas en 2 capas
 
 \begin{center}
-\includegraphics[height=3cm]{images/e2/4553seq_50iter_0d05alpha_conv_0.5tr.png} 
-\includegraphics[height=3cm]{images/e2/4553seq_50iter_0d05alpha_conv_0.6tr.png} 
-\includegraphics[height=3cm]{images/e2/4553seq_50iter_0d05alpha_conv_0.7tr.png} 
-\includegraphics[height=3cm]{images/e2/4553seq_50iter_0d05alpha_conv_0.8tr.png} 
-\includegraphics[height=3cm]{images/e2/4553seq_50iter_0d05alpha_conv_0.9tr.png} 
+\includegraphics[height=3cm]{images/e3/4553seq_50iter_0d05alpha_conv_0.5tr.png} 
+\includegraphics[height=3cm]{images/e3/4553seq_50iter_0d05alpha_conv_0.6tr.png} 
+\includegraphics[height=3cm]{images/e3/4553seq_50iter_0d05alpha_conv_0.7tr.png} 
+\includegraphics[height=3cm]{images/e3/4553seq_50iter_0d05alpha_conv_0.8tr.png} 
+\includegraphics[height=3cm]{images/e3/4553seq_50iter_0d05alpha_conv_0.9tr.png} 
 \end{center}
 
 # Conclusiones
