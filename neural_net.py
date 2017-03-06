@@ -64,6 +64,7 @@ class NeuralNetwork():
         # cost = np.sum( -y * np.log(inp).T - (1-y) * np.log(1-inp.T) ) / inp.shape[0]
         if not(y is None):
             cost =  np.sum( np.abs(y - inp)) / y.shape[0] 
+            # cost =  np.sum( np.sqrt( np.power(y-inp,2))) / (y.shape[0] * 2) 
         else:
             cost = 0
 
@@ -82,8 +83,10 @@ class NeuralNetwork():
         predictions = self.forward_prop(X)[0]
 
         # J  = np.sum( -y * np.log(predictions).T - (1-y) * np.log(1-predictions.T) )
-        J  = np.sum( np.abs(y - predictions))
-        J /= y.shape[0]
+        J  = np.sum( np.abs(y - predictions)) / y.shape[0] 
+
+        # J  = np.sum( np.sqrt( np.power(y-predictions,2))) / (y.shape[0] * 2) 
+        
     
         return J
 
@@ -225,12 +228,11 @@ class NeuralNetwork():
 def divide_data(data,perc):
     from math import ceil
     data_size  = data.shape[0]
-    train_size = ceil(data_size * perc)
+    train_size = int(ceil(data_size * perc))
 
     return dict(x_train = data[:train_size,:-1],
                 y_train = data[:train_size, -1],
-                x_test  = data[train_size:,:-1],
-                y_test  = data[train_size:, -1])
+                cross_t = data[train_size:,:])
             
 def graph_points(data,b):
     N   = data.shape[0]

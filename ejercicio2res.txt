@@ -1,0 +1,842 @@
+EL ORDEN DE LAS ARQUITECTURAS ES 
+
+[4,i,1] for i in range(2,11)] + [[4,2,2,1],[4,5,5,1],[4,10,10,2]
+una capa 2,3,4,5,6,7,8,9,10
+dos capas (2,2),(5,5),(10,10)
+
+Desea mostrar los gráficos o guardarlos? (save*/show): 
+Introduzca un training rate (default 0.3): 
+0.3
+Introduzca número de iteraciones (default 2000): 
+2000
+last cost: 0.0306056891743
+Gtk-Message: Failed to load module "canberra-gtk-module"
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 123.0, 'false_negative': 3.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.994|
+| precision | 1.0|
+| recall    | 0.97619047619|
+| f-score   | 0.987951807229|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0307831295506
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0259051409445
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 123.0, 'false_negative': 3.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.994|
+| precision | 1.0|
+| recall    | 0.97619047619|
+| f-score   | 0.987951807229|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0267774386793
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0265482033959
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 123.0, 'false_negative': 3.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.994|
+| precision | 1.0|
+| recall    | 0.97619047619|
+| f-score   | 0.987951807229|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 141.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.988|
+| precision | 1.0|
+| recall    | 0.959183673469|
+| f-score   | 0.979166666667|
+-----------------------------------------------
+
+
+
+last cost: 0.0276169299555
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.026685378178
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0288668161652
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 141.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.988|
+| precision | 1.0|
+| recall    | 0.959183673469|
+| f-score   | 0.979166666667|
+-----------------------------------------------
+
+
+
+last cost: 0.0263345141249
+Prediction for datasets size 500
+On training set
+{'true_negative': 374.0, 'false_positive': 0.0, 'true_positive': 122.0, 'false_negative': 4.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.992|
+| precision | 1.0|
+| recall    | 0.968253968254|
+| f-score   | 0.983870967742|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 140.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.986|
+| precision | 1.0|
+| recall    | 0.952380952381|
+| f-score   | 0.975609756098|
+-----------------------------------------------
+
+
+
+last cost: 0.0248066234126
+Prediction for datasets size 500
+On training set
+{'true_negative': 373.0, 'false_positive': 1.0, 'true_positive': 126.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.998|
+| precision | 0.992125984252|
+| recall    | 1.0|
+| f-score   | 0.99604743083|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 141.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.988|
+| precision | 1.0|
+| recall    | 0.959183673469|
+| f-score   | 0.979166666667|
+-----------------------------------------------
+
+
+
+last cost: 0.0244804144989
+Prediction for datasets size 500
+On training set
+{'true_negative': 373.0, 'false_positive': 1.0, 'true_positive': 125.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.992063492063|
+| recall    | 0.992063492063|
+| f-score   | 0.992063492063|
+On test set
+{'true_negative': 353.0, 'false_positive': 0.0, 'true_positive': 141.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.988|
+| precision | 1.0|
+| recall    | 0.959183673469|
+| f-score   | 0.979166666667|
+-----------------------------------------------
+
+
+
+last cost: 0.0330177449149
+Prediction for datasets size 500
+On training set
+{'true_negative': 746.0, 'false_positive': 2.0, 'true_positive': 252.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.998|
+| precision | 0.992125984252|
+| recall    | 1.0|
+| f-score   | 0.99604743083|
+On test set
+{'true_negative': 704.0, 'false_positive': 2.0, 'true_positive': 286.0, 'false_negative': 8.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.99|
+| precision | 0.993055555556|
+| recall    | 0.972789115646|
+| f-score   | 0.982817869416|
+-----------------------------------------------
+
+
+
+last cost: 0.0360243016322
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 704.0, 'false_positive': 3.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.989830508475|
+| recall    | 0.996587030717|
+| f-score   | 0.993197278912|
+-----------------------------------------------
+
+
+
+last cost: 0.0310752700726
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0337957542048
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 704.0, 'false_positive': 3.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.989830508475|
+| recall    | 0.996587030717|
+| f-score   | 0.993197278912|
+-----------------------------------------------
+
+
+
+last cost: 0.0317618260719
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0325664805019
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0321050871451
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0322780222343
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 704.0, 'false_positive': 3.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.989830508475|
+| recall    | 0.996587030717|
+| f-score   | 0.993197278912|
+-----------------------------------------------
+
+
+
+last cost: 0.0314097939418
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 704.0, 'false_positive': 3.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.989830508475|
+| recall    | 0.996587030717|
+| f-score   | 0.993197278912|
+-----------------------------------------------
+
+
+
+last cost: 0.0316653574834
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0313055132682
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+last cost: 0.0297582500976
+Prediction for datasets size 1000
+On training set
+{'true_negative': 681.0, 'false_positive': 1.0, 'true_positive': 318.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 703.0, 'false_positive': 4.0, 'true_positive': 292.0, 'false_negative': 1.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.986486486486|
+| recall    | 0.996587030717|
+| f-score   | 0.991511035654|
+-----------------------------------------------
+
+
+
+^Llast cost: 0.0366365294461
+Prediction for datasets size 1000
+On training set
+{'true_negative': 1362.0, 'false_positive': 2.0, 'true_positive': 636.0, 'false_negative': 0.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.999|
+| precision | 0.996865203762|
+| recall    | 1.0|
+| f-score   | 0.998430141287|
+On test set
+{'true_negative': 1409.0, 'false_positive': 5.0, 'true_positive': 584.0, 'false_negative': 2.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9965|
+| precision | 0.991511035654|
+| recall    | 0.996587030717|
+| f-score   | 0.994042553191|
+-----------------------------------------------
+
+
+
+last cost: 0.0368802835185
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 563.0, 'false_negative': 8.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9945|
+| precision | 0.994699646643|
+| recall    | 0.985989492119|
+| f-score   | 0.990325417766|
+-----------------------------------------------
+
+
+
+last cost: 0.0339518360479
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 563.0, 'false_negative': 8.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9945|
+| precision | 0.994699646643|
+| recall    | 0.985989492119|
+| f-score   | 0.990325417766|
+-----------------------------------------------
+
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 563.0, 'false_negative': 8.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9945|
+| precision | 0.994699646643|
+| recall    | 0.985989492119|
+| f-score   | 0.990325417766|
+-----------------------------------------------
+
+
+
+last cost: 0.035611735758
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 561.0, 'false_negative': 10.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9935|
+| precision | 0.994680851064|
+| recall    | 0.982486865149|
+| f-score   | 0.988546255507|
+-----------------------------------------------
+
+
+
+last cost: 0.0374109786266
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 562.0, 'false_negative': 9.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.994|
+| precision | 0.994690265487|
+| recall    | 0.984238178634|
+| f-score   | 0.989436619718|
+-----------------------------------------------
+
+
+
+last cost: 0.0326109522637
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 564.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.994708994709|
+| recall    | 0.987740805604|
+| f-score   | 0.991212653779|
+-----------------------------------------------
+
+
+
+last cost: 0.0318939627562
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 562.0, 'false_negative': 9.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.994|
+| precision | 0.994690265487|
+| recall    | 0.984238178634|
+| f-score   | 0.989436619718|
+-----------------------------------------------
+
+
+
+last cost: 0.031345505793
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 563.0, 'false_negative': 8.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9945|
+| precision | 0.994699646643|
+| recall    | 0.985989492119|
+| f-score   | 0.990325417766|
+-----------------------------------------------
+
+
+
+last cost: 0.0309135064614
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 564.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.994708994709|
+| recall    | 0.987740805604|
+| f-score   | 0.991212653779|
+-----------------------------------------------
+
+
+
+last cost: 0.0303675321605
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 564.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.994708994709|
+| recall    | 0.987740805604|
+| f-score   | 0.991212653779|
+-----------------------------------------------
+
+
+
+last cost: 0.0335424822301
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1437.0, 'false_positive': 4.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.992818671454|
+| recall    | 0.989266547406|
+| f-score   | 0.991039426523|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 559.0, 'false_negative': 12.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9925|
+| precision | 0.994661921708|
+| recall    | 0.978984238179|
+| f-score   | 0.986760812004|
+-----------------------------------------------
+
+
+
+last cost: 0.0327122750778
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 553.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.9955|
+| precision | 0.994604316547|
+| recall    | 0.989266547406|
+| f-score   | 0.991928251121|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 564.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.994708994709|
+| recall    | 0.987740805604|
+| f-score   | 0.991212653779|
+-----------------------------------------------
+
+
+
+last cost: 0.0284556775624
+Prediction for datasets size 2000
+On training set
+{'true_negative': 1438.0, 'false_positive': 3.0, 'true_positive': 554.0, 'false_negative': 5.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.996|
+| precision | 0.994614003591|
+| recall    | 0.991055456172|
+| f-score   | 0.992831541219|
+On test set
+{'true_negative': 1426.0, 'false_positive': 3.0, 'true_positive': 564.0, 'false_negative': 7.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.995|
+| precision | 0.994708994709|
+| recall    | 0.987740805604|
+| f-score   | 0.991212653779|
+-----------------------------------------------
+
+
+
+last cost: 0.0356493516264
+Prediction for datasets size 2000
+On training set
+{'true_negative': 2876.0, 'false_positive': 6.0, 'true_positive': 1112.0, 'false_negative': 6.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.997|
+| precision | 0.994633273703|
+| recall    | 0.994633273703|
+| f-score   | 0.994633273703|
+On test set
+{'true_negative': 2856.0, 'false_positive': 2.0, 'true_positive': 1132.0, 'false_negative': 10.0}
+| metric    | value  |
+|-----------|--------|
+| accuracy  | 0.997|
+| precision | 0.99823633157|
+| recall    | 0.991243432574|
+| f-score   | 0.994727592267|
+-----------------------------------------------
