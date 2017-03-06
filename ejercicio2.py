@@ -54,6 +54,7 @@ for sz in [500,1000,2000]:
         print("Prediction for datasets size " + str(y.shape[0]))
 
         # Cálculo de error y gráfico con predicciones para trainig set
+        print(dict(arquitectura=arq,alpha=alpha,iter=iter))
         print("On training set")
         net.test(X,y,Xorg)
         title = make_title(arq,alpha,iter,size,is_train=True)
