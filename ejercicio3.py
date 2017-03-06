@@ -48,6 +48,8 @@ for train_size in [0.5,0.6,0.7,0.8,0.9]:
         fn    = make_filename(arq,alpha,iter,train_size,True,"conv")
         net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
                             ,alpha = alpha,cross_val=dat["cross_t"],title=title,file=fn)
+        print(dict(arquitectura=arq,alpha=alpha,iter=iter))
+        
 
 
 neural_arq = [[4,i,3] for i in range(4,11)] + [[4,5,5,3]]
@@ -64,6 +66,7 @@ for train_size in [0.5,0.6,0.7,0.8,0.9]:
         fn    = make_filename(arq,alpha,iter,train_size,True,"conv_m")
         net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
                             ,alpha = alpha,cross_val=dat["cross_t"],title=title,file=fn)
+        print(dict(arquitectura=arq,alpha=alpha,iter=iter))
         # title = make_title(arq,alpha,iter,train_size,is_train=True)
         # fn    = make_filename(arq,alpha,iter,train_size,True,"conv")
         # net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
