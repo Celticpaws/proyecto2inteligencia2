@@ -1,0 +1,163 @@
+Desea mostrar los gráficos o guardarlos? (save*/show): Introduzca un training rate (default 0.05): 0.05
+Introduzca número de iteraciones (default 50): 50
+last cost: 0.430982047013
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 1]}
+last cost: 0.427635362093
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 1]}
+last cost: 0.422990711623
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 1]}
+last cost: 0.41861443621
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 1]}
+last cost: 0.417828919314
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 1]}
+last cost: 0.415468260665
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 1]}
+last cost: 0.415373103571
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 1]}
+last cost: 0.426929068149
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 1]}
+last cost: 0.435907431385
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 1]}
+last cost: 0.443928769055
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 1]}
+last cost: 0.436449253752
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 1]}
+last cost: 0.434075293574
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 1]}
+last cost: 0.430873376614
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 1]}
+last cost: 0.426081040401
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 1]}
+last cost: 0.430422568842
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 1]}
+last cost: 0.442565253717
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 1]}
+last cost: 0.451109381741
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 1]}
+last cost: 0.445974232471
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 1]}
+last cost: 0.442099741265
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 1]}
+last cost: 0.444492812503
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 1]}
+last cost: 0.440635091491
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 1]}
+last cost: 0.439455210502
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 1]}
+last cost: 0.439789636131
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 1]}
+last cost: 0.452284831862
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 1]}
+last cost: 0.462577946735
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 1]}
+last cost: 0.459726521569
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 1]}
+last cost: 0.455967330161
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 1]}
+last cost: 0.450490784038
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 1]}
+last cost: 0.452017817736
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 1]}
+last cost: 0.450425225525
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 1]}
+last cost: 0.438314718205
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 1]}
+last cost: 0.457587330994
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 1]}
+last cost: 0.447842421738
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 1]}
+last cost: 0.447137035391
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 1]}
+last cost: 0.433217284407
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 1]}
+last cost: 0.433233018803
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 1]}
+last cost: 0.427074986582
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 1]}
+last cost: 0.43761197202
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 1]}
+last cost: 0.433803535696
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 1]}
+last cost: 0.450371034688
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 1]}
+--------------------------------------------------------------------
+last cost: 1.37397944799
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 3]}
+last cost: 1.35421146305
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 3]}
+last cost: 1.34855917078
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 3]}
+last cost: 1.33567840459
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 3]}
+last cost: 1.33258509478
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 3]}
+last cost: 1.32701811563
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 3]}
+last cost: 1.32707184084
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 3]}
+last cost: 1.35619463894
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 3]}
+last cost: 1.37086847239
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 3]}
+last cost: 1.37096561985
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 3]}
+last cost: 1.34919068547
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 3]}
+last cost: 1.3248829441
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 3]}
+last cost: 1.33640205332
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 3]}
+last cost: 1.31674897735
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 3]}
+last cost: 1.32167557622
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 3]}
+last cost: 1.37546211703
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 3]}
+last cost: 1.38428747006
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 3]}
+last cost: 1.35451984518
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 3]}
+last cost: 1.35280799162
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 3]}
+last cost: 1.34101889954
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 3]}
+last cost: 1.27578951866
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 3]}
+last cost: 1.33672771231
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 3]}
+last cost: 1.32920534525
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 3]}
+last cost: 1.37150674295
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 3]}
+last cost: 1.36015196672
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 3]}
+last cost: 1.34470515331
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 3]}
+last cost: 1.35005610615
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 3]}
+last cost: 1.34119263746
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 3]}
+last cost: 1.33482431243
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 3]}
+last cost: 1.33623683175
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 3]}
+last cost: 1.32986134002
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 3]}
+last cost: 1.36450531234
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 3]}
+last cost: 1.38065886915
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 4, 3]}
+last cost: 1.35559747436
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 3]}
+last cost: 1.35476317877
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 6, 3]}
+last cost: 1.34459865896
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 7, 3]}
+last cost: 1.33745295309
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 8, 3]}
+last cost: 1.33799491441
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 9, 3]}
+last cost: 1.33886034914
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 10, 3]}
+last cost: 1.37214310807
+{'alpha': 0.05, 'iter': 50, 'arquitectura': [4, 5, 5, 3]}
