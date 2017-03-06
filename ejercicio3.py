@@ -56,7 +56,7 @@ tern_dat = np.matrix(map(to_ternary,data),dtype=np.float128)
 print(tern_dat)
 
 for train_size in [0.5,0.6,0.7,0.8,0.9]:
-    dat = divide_data(tern_dat,train_size)
+    dat = divide_data(tern_dat,train_size,3)
     for arq in neural_arq:
         net = NeuralNetwork(arq)
 

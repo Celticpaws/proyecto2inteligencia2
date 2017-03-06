@@ -53,6 +53,8 @@ class NeuralNetwork():
         z = []
         a = []
         for layer in self.matrices:
+            print("iterando")
+            # import pdb;pdb.set_trace()
             ones_vect   = np.matrix(np.ones( (inp.shape[0],1) ))
             inp         = np.append(ones_vect,inp,axis=1)
             a           += [inp]
@@ -228,13 +230,13 @@ class NeuralNetwork():
         return res
             
 
-def divide_data(data,perc):
+def divide_data(data,perc,y_cols=1):
     from math import ceil
     data_size  = data.shape[0]
     train_size = int(ceil(data_size * perc))
 
-    return dict(x_train = data[:train_size,:-1],
-                y_train = data[:train_size, -1],
+    return dict(x_train = data[:train_size,:-y_cols],
+                y_train = data[:train_size, -y_cols],
                 cross_t = data[train_size:,:])
             
 def graph_points(data,b):
