@@ -49,13 +49,13 @@ for train_size in [0.5,0.6,0.7,0.8,0.9]:
         net.plot_convergence(dat["x_train"],dat["y_train"],iterations=iter
                             ,alpha = alpha,cross_val=dat["cross_t"],title=title,file=fn)
         print(dict(arquitectura=arq,alpha=alpha,iter=iter))
-        
+
 
 
 neural_arq = [[4,i,3] for i in range(4,11)] + [[4,5,5,3]]
 tern_dat = np.matrix(map(to_ternary,data),dtype=np.float128)
 
-print(tern_dat)
+print('--------------------------------------------------------------------')
 
 for train_size in [0.5,0.6,0.7,0.8,0.9]:
     dat = divide_data(tern_dat,train_size,3)
